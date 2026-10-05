@@ -17,17 +17,28 @@ class Alliteration extends AbstractGenerator implements Generator
     /** @type Cinam\Randomizer\Randomizer The random number generator. */
     protected $_randomizer;
 
+    /** @type string The language code of the word lists. */
+    protected $_language;
+
     /**
      * Initializes the Alliteration Generator with the default word lists.
      *
      * @api
      * @param \Cinam\Randomizer\Randomizer $randomizer The random number generator.
+     * @param string $language The language code of the word lists ('en' or 'es').
+     * @throws \InvalidArgumentException If the language is not supported.
      */
-    public function __construct(Randomizer $randomizer = null)
+    public function __construct(Randomizer $randomizer = null, $language = 'en')
     {
+        $directory = __DIR__ . "/{$language}";
+        if (!preg_match('/^[a-z]{2}$/', $language) || !is_dir($directory)) {
+            throw new \InvalidArgumentException("Unsupported language: {$language}");
+        }
+
         $this->_randomizer = $randomizer;
-        $this->_adjectives = file(__DIR__ . '/adjectives.txt', FILE_IGNORE_NEW_LINES);
-        $this->_nouns = file(__DIR__ . '/nouns.txt', FILE_IGNORE_NEW_LINES);
+        $this->_language = $language;
+        $this->_adjectives = file("{$directory}/adjectives.txt", FILE_IGNORE_NEW_LINES);
+        $this->_nouns = file("{$directory}/nouns.txt", FILE_IGNORE_NEW_LINES);
     }
 
     /**
@@ -41,7 +52,7 @@ class Alliteration extends AbstractGenerator implements Generator
         $adjective = $this->_getRandomWord($this->_adjectives);
         $noun = $this->_getRandomWord($this->_nouns, $adjective[0]);
 
-        return ucwords("{$adjective} {$noun}");
+        return ucwords($this->_language === 'es' ? "{$noun} {$adjective}" : "{$adjective} {$noun}");
     }
 
     /**

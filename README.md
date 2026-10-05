@@ -86,6 +86,25 @@ $generator = new \Nubs\RandomNameGenerator\Alliteration();
 echo $generator->getName();
 ```
 
+## Languages
+The alliteration generator supports English (`en`, default) and Spanish
+(`es`).  Spanish names put the noun first and only use gender-neutral, positive
+adjectives and inoffensive animals.
+
+#### Examples
+* *Oso Optimista*
+* *León Leal*
+* *Tigre Tenaz*
+
+#### Usage
+```php
+$generator = new \Nubs\RandomNameGenerator\Alliteration(null, 'es');
+echo $generator->getName();
+
+// The video game generator is English-only, so this only uses Alliteration.
+$generator = \Nubs\RandomNameGenerator\All::create(null, 'es');
+```
+
 ## License
 random-name-generator is licensed under the MIT license.  See
 [LICENSE](LICENSE) for the full license text.

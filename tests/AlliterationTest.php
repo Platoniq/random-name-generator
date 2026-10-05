@@ -48,6 +48,83 @@ class AlliterationTest extends TestCase
     }
 
     /**
+     * Verify basic behavior of getName() in Spanish.
+     *
+     * @test
+     * @covers ::__construct
+     * @covers ::getName
+     *
+     * @return void
+     */
+    public function getNameSpanish()
+    {
+        $generator = new Alliteration(null, 'es');
+        $parts = explode(' ', $generator->getName());
+        $this->assertCount(2, $parts);
+        $this->assertSame($parts[0][0], $parts[1][0]);
+    }
+
+    /**
+     * Verify getName() in Spanish puts the noun before the adjective.
+     *
+     * @test
+     * @covers ::__construct
+     * @covers ::getName
+     *
+     * @return void
+     */
+    public function getNameSpanishForced()
+    {
+        $numberGenerator = $this->createMock(NumberGenerator::class);
+        $numberGenerator->expects($this->exactly(2))->method('getInt')->will($this->onConsecutiveCalls(39, 1));
+        $randomizer = new Randomizer($numberGenerator);
+
+        $generator = new Alliteration($randomizer, 'es');
+        $this->assertSame('León Leal', $generator->getName());
+    }
+
+    /**
+     * Verify an unsupported language is rejected.
+     *
+     * @test
+     * @covers ::__construct
+     *
+     * @return void
+     */
+    public function constructUnsupportedLanguage()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        new Alliteration(null, 'xx');
+    }
+
+    /**
+     * Verify the Spanish word lists contain no offensive words and every
+     * adjective has an alliterative noun.
+     *
+     * @test
+     * @coversNothing
+     *
+     * @return void
+     */
+    public function spanishWordListsAreClean()
+    {
+        $adjectives = file(__DIR__ . '/../src/es/adjectives.txt', FILE_IGNORE_NEW_LINES);
+        $nouns = file(__DIR__ . '/../src/es/nouns.txt', FILE_IGNORE_NEW_LINES);
+        $banned = [
+            'zorro', 'cerdo', 'puerco', 'burro', 'asno', 'mula', 'rata', 'perro', 'vaca', 'cabra', 'gallina',
+            'buitre', 'víbora', 'serpiente', 'sanguijuela', 'gusano', 'piojo', 'cucaracha', 'hiena', 'besugo',
+            'foca', 'ballena', 'morsa', 'cotorra', 'borrego', 'oveja', 'mono', 'gorila', 'pato', 'pavo', 'sapo',
+            'mariquita', 'mariposa', 'marmota', 'feo', 'pobre', 'tonto', 'gordo', 'lento', 'raro', 'triste',
+            'débil', 'torpe', 'cobarde', 'loco', 'salvaje', 'sucio', 'viejo', 'inútil', 'vago',
+        ];
+
+        $this->assertSame([], array_values(array_intersect($banned, array_merge($adjectives, $nouns))));
+        foreach ($adjectives as $adjective) {
+            $this->assertNotEmpty(preg_grep("/^{$adjective[0]}/", $nouns), "No noun for {$adjective}");
+        }
+    }
+
+    /**
      * Verify basic behavior of __toString().
      *
      * @test

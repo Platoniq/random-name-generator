@@ -51,6 +51,25 @@ class AllTest extends TestCase
     }
 
     /**
+     * Verify getName() in Spanish uses only the Alliteration generator.
+     *
+     * @test
+     * @covers ::__construct
+     * @covers ::create
+     * @covers ::getName
+     * @uses \Nubs\RandomNameGenerator\Alliteration
+     *
+     * @return void
+     */
+    public function getNameSpanish()
+    {
+        $generator = All::create(null, 'es');
+        $parts = explode(' ', $generator->getName());
+        $this->assertCount(2, $parts);
+        $this->assertSame($parts[0][0], $parts[1][0]);
+    }
+
+    /**
      * Verify basic behavior of __toString().
      *
      * @test
