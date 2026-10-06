@@ -10,11 +10,14 @@ búho
 caballo
 camaleón
 canguro
+carpincho
 castor
 cebra
 ciervo
 cisne
+coatí
 colibrí
+cóndor
 conejo
 delfín
 dromedario
@@ -30,6 +33,7 @@ grulla
 guepardo
 halcón
 hormiga
+huemul
 hurón
 ibis
 iguana
@@ -37,6 +41,7 @@ impala
 jaguar
 jilguero
 jirafa
+llama
 lémur
 león
 leopardo
@@ -56,6 +61,7 @@ orca
 ornitorrinco
 oso
 paloma
+papagayo
 panda
 pantera
 pelícano
@@ -69,9 +75,11 @@ ruiseñor
 salamandra
 saltamontes
 suricata
+taruca
 tejón
 tigre
 tortuga
 tucán
 venado
 vencejo
+vizcacha
