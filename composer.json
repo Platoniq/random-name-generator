@@ -1,11 +1,16 @@
 {
-    "name": "nubs/random-name-generator",
-    "description": "A library to create interesting, sometimes entertaining, random names.",
+    "name": "platoniq/random-name-generator",
+    "description": "A library to create interesting, sometimes entertaining, random names with multi-language support.",
     "keywords": ["random", "generator", "video game", "alliteration"],
     "authors": [
         {
             "name": "Spencer Rinehart",
             "email": "anubis@overthemonkey.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Platoniq",
+            "email": "dev@platoniq.net",
             "role": "Developer"
         }
     ],
@@ -21,7 +26,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Nubs\\RandomNameGenerator\\": "src"
+            "Platoniq\\RandomNameGenerator\\": "src"
         }
     },
     "scripts": {

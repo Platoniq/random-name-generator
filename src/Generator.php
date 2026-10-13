@@ -1,5 +1,5 @@
 <?php
-namespace Nubs\RandomNameGenerator;
+namespace Platoniq\RandomNameGenerator;
 
 /**
  * Defines the standard interface for all the random name generators.

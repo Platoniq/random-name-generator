@@ -1,5 +1,5 @@
 <?php
-namespace Nubs\RandomNameGenerator;
+namespace Platoniq\RandomNameGenerator;
 
 use Cinam\Randomizer\Randomizer;
 

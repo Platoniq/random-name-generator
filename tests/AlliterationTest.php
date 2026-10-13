@@ -1,12 +1,12 @@
 <?php
-namespace Nubs\RandomNameGenerator;
+namespace Platoniq\RandomNameGenerator;
 
 use PHPUnit\Framework\TestCase;
 use Cinam\Randomizer\Randomizer;
 use Cinam\Randomizer\NumberGenerator;
 
 /**
- * @coversDefaultClass \Nubs\RandomNameGenerator\Alliteration
+ * @coversDefaultClass \Platoniq\RandomNameGenerator\Alliteration
  * @covers ::<protected>
  */
 class AlliterationTest extends TestCase

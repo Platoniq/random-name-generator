@@ -1,11 +1,11 @@
 <?php
-namespace Nubs\RandomNameGenerator;
+namespace Platoniq\RandomNameGenerator;
 
 use PHPUnit\Framework\TestCase;
 use Cinam\Randomizer\Randomizer;
 
 /**
- * @coversDefaultClass \Nubs\RandomNameGenerator\All
+ * @coversDefaultClass \Platoniq\RandomNameGenerator\All
  * @covers ::<protected>
  */
 class AllTest extends TestCase
@@ -17,8 +17,8 @@ class AllTest extends TestCase
      * @covers ::__construct
      * @covers ::create
      * @covers ::getName
-     * @uses \Nubs\RandomNameGenerator\Alliteration
-     * @uses \Nubs\RandomNameGenerator\Vgng
+     * @uses \Platoniq\RandomNameGenerator\Alliteration
+     * @uses \Platoniq\RandomNameGenerator\Vgng
      *
      * @return void
      */
@@ -36,7 +36,7 @@ class AllTest extends TestCase
      * @covers ::__construct
      * @covers ::create
      * @covers ::getName
-     * @uses \Nubs\RandomNameGenerator\Alliteration
+     * @uses \Platoniq\RandomNameGenerator\Alliteration
      *
      * @return void
      */
@@ -57,7 +57,7 @@ class AllTest extends TestCase
      * @covers ::__construct
      * @covers ::create
      * @covers ::getName
-     * @uses \Nubs\RandomNameGenerator\Alliteration
+     * @uses \Platoniq\RandomNameGenerator\Alliteration
      *
      * @return void
      */
@@ -77,8 +77,8 @@ class AllTest extends TestCase
      * @covers ::create
      * @covers ::__toString
      * @covers ::getName
-     * @uses \Nubs\RandomNameGenerator\Alliteration
-     * @uses \Nubs\RandomNameGenerator\Vgng
+     * @uses \Platoniq\RandomNameGenerator\Alliteration
+     * @uses \Platoniq\RandomNameGenerator\Vgng
      *
      * @return void
      */

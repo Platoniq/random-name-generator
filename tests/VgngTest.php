@@ -1,11 +1,11 @@
 <?php
-namespace Nubs\RandomNameGenerator;
+namespace Platoniq\RandomNameGenerator;
 
 use PHPUnit\Framework\TestCase;
 use Cinam\Randomizer\Randomizer;
 
 /**
- * @coversDefaultClass \Nubs\RandomNameGenerator\Vgng
+ * @coversDefaultClass \Platoniq\RandomNameGenerator\Vgng
  * @covers ::<protected>
  */
 class VgngTest extends TestCase
