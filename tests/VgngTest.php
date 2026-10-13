@@ -17,10 +17,10 @@ class VgngTest extends TestCase
      * @covers ::__construct
      * @covers ::getName
      */
-    public function getNameBasic()
+    public function testNameBasic()
     {
         $numberGenerator = $this->createMock('\Cinam\Randomizer\NumberGenerator');
-        $numberGenerator->expects($this->exactly(3))->method('getInt')->will($this->returnValue(1));
+        $numberGenerator->expects($this->exactly(3))->method('getInt')->willReturn(1);
         $randomizer = new Randomizer($numberGenerator);
 
         $vgng = new Vgng($randomizer);
@@ -35,10 +35,10 @@ class VgngTest extends TestCase
      * @covers ::__construct
      * @covers ::getName
      */
-    public function getNameSimilarName()
+    public function testNameSimilarName()
     {
         $numberGenerator = $this->createMock('\Cinam\Randomizer\NumberGenerator');
-        $numberGenerator->expects($this->exactly(4))->method('getInt')->will($this->onConsecutiveCalls(0, 0, 2, 10));
+        $numberGenerator->expects($this->exactly(4))->method('getInt')->willReturn(0, 0, 2, 10);
         $randomizer = new Randomizer($numberGenerator);
 
         $vgng = new Vgng($randomizer);
@@ -57,7 +57,7 @@ class VgngTest extends TestCase
     public function toStringBasic()
     {
         $numberGenerator = $this->createMock('\Cinam\Randomizer\NumberGenerator');
-        $numberGenerator->expects($this->exactly(3))->method('getInt')->will($this->returnValue(1));
+        $numberGenerator->expects($this->exactly(3))->method('getInt')->willReturn(1);
         $randomizer = new Randomizer($numberGenerator);
 
         $vgng = new Vgng($randomizer);

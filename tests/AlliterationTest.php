@@ -20,7 +20,7 @@ class AlliterationTest extends TestCase
      *
      * @return void
      */
-    public function getNameBasic()
+    public function testNameBasic()
     {
         $generator = new Alliteration();
         $parts = explode(' ', $generator->getName());
@@ -37,10 +37,10 @@ class AlliterationTest extends TestCase
      *
      * @return void
      */
-    public function getNameForced()
+    public function testNameForced()
     {
         $numberGenerator = $this->createMock(NumberGenerator::class);
-        $numberGenerator->expects($this->exactly(2))->method('getInt')->will($this->onConsecutiveCalls(20, 5));
+        $numberGenerator->expects($this->exactly(2))->method('getInt')->willReturn(20, 5);
         $randomizer = new Randomizer($numberGenerator);
 
         $generator = new Alliteration($randomizer);
@@ -56,7 +56,7 @@ class AlliterationTest extends TestCase
      *
      * @return void
      */
-    public function getNameSpanish()
+    public function testNameSpanish()
     {
         $generator = new Alliteration(null, 'es');
         $parts = explode(' ', $generator->getName());
@@ -73,10 +73,10 @@ class AlliterationTest extends TestCase
      *
      * @return void
      */
-    public function getNameSpanishForced()
+    public function testNameSpanishForced()
     {
         $numberGenerator = $this->createMock(NumberGenerator::class);
-        $numberGenerator->expects($this->exactly(2))->method('getInt')->will($this->onConsecutiveCalls(39, 1));
+        $numberGenerator->expects($this->exactly(2))->method('getInt')->willReturn(39, 1);
         $randomizer = new Randomizer($numberGenerator);
 
         $generator = new Alliteration($randomizer, 'es');

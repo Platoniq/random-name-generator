@@ -22,11 +22,11 @@ class AllTest extends TestCase
      *
      * @return void
      */
-    public function getNameBasic()
+    public function testNameBasic()
     {
         $generator = All::create();
         $name = $generator->getName();
-        $this->assertRegexp('/.+/', $name);
+        $this->assertMatchesRegularExpression('/.+/', $name);
     }
 
     /**
@@ -40,10 +40,10 @@ class AllTest extends TestCase
      *
      * @return void
      */
-    public function getNameForced()
+    public function testNameForced()
     {
         $numberGenerator = $this->createMock('\Cinam\Randomizer\NumberGenerator');
-        $numberGenerator->expects($this->exactly(2))->method('getInt')->will($this->onConsecutiveCalls(20, 5));
+        $numberGenerator->expects($this->exactly(2))->method('getInt')->willReturn(20, 5);
         $randomizer = new Randomizer($numberGenerator);
 
         $generator = new All([new Alliteration($randomizer)]);
@@ -61,7 +61,7 @@ class AllTest extends TestCase
      *
      * @return void
      */
-    public function getNameSpanish()
+    public function testNameSpanish()
     {
         $generator = All::create(null, 'es');
         $parts = explode(' ', $generator->getName());
@@ -86,6 +86,6 @@ class AllTest extends TestCase
     {
         $generator = All::create();
         $name = (string)$generator;
-        $this->assertRegexp('/.+/', $name);
+        $this->assertMatchesRegularExpression('/.+/', $name);
     }
 }
