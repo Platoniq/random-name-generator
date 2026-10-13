@@ -86,6 +86,43 @@ $generator = new \Nubs\RandomNameGenerator\Alliteration();
 echo $generator->getName();
 ```
 
+## Combination Names
+The combination name generator uses the same word lists as the alliteration
+generator, but pairs any adjective with any noun regardless of their starting
+letters, so it can produce many more distinct names.
+
+#### Examples
+* *Brave Otter*
+* *Adorable Gemsbok*
+
+#### Usage
+```php
+$generator = new \Nubs\RandomNameGenerator\Combination();
+echo $generator->getName();
+```
+
+## Languages
+The alliteration and combination generators support English (`en`, default) and Spanish
+(`es`).  Spanish names put the noun first and only use gender-neutral, positive
+adjectives and inoffensive animals.
+
+#### Examples
+* *Oso Optimista*
+* *León Leal*
+* *Tigre Tenaz*
+
+#### Usage
+```php
+$generator = new \Nubs\RandomNameGenerator\Alliteration(null, 'es');
+echo $generator->getName();
+
+$generator = new \Nubs\RandomNameGenerator\Combination(null, 'es'); // e.g. "Nutria Valiente"
+echo $generator->getName();
+
+// The video game generator is English-only, so this only uses Alliteration.
+$generator = \Nubs\RandomNameGenerator\All::create(null, 'es');
+```
+
 ## License
 random-name-generator is licensed under the MIT license.  See
 [LICENSE](LICENSE) for the full license text.

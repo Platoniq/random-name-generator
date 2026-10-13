@@ -29,14 +29,21 @@ class All extends AbstractGenerator implements Generator
 
     /**
      * Constructs an All Generator using the default list of generators.
+     * Only the Alliteration generator supports languages other than English.
      *
      * @api
      * @param \Cinam\Randomizer\Randomizer $randomizer The random number generator.
+     * @param string $language The language code of the names ('en' or 'es').
      * @return \Nubs\RandomNameGenerator\All The constructed generator.
      */
-    public static function create(Randomizer $randomizer = null)
+    public static function create(Randomizer $randomizer = null, $language = 'en')
     {
-        return new self([new Alliteration($randomizer), new Vgng($randomizer)], $randomizer);
+        $generators = [new Alliteration($randomizer, $language)];
+        if ($language === 'en') {
+            $generators[] = new Vgng($randomizer);
+        }
+
+        return new self($generators, $randomizer);
     }
 
     /**
