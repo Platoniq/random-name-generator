@@ -1,10 +1,10 @@
-<phpunit colors="true" forceCoversAnnotation="true" strict="true">
+<phpunit colors="true">
     <testsuite name="Unit Tests">
         <directory>./tests</directory>
     </testsuite>
-    <filter>
-        <whitelist>
+    <source>
+        <include>
             <directory>src</directory>
-        </whitelist>
-    </filter>
+        </include>
+    </source>
 </phpunit>

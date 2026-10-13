@@ -1,5 +1,5 @@
 <?php
-namespace Nubs\RandomNameGenerator;
+namespace Platoniq\RandomNameGenerator;
 
 abstract class AbstractGenerator implements Generator
 {

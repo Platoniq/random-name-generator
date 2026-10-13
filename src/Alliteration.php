@@ -1,5 +1,5 @@
 <?php
-namespace Nubs\RandomNameGenerator;
+namespace Platoniq\RandomNameGenerator;
 
 use Cinam\Randomizer\Randomizer;
 
@@ -9,16 +9,16 @@ use Cinam\Randomizer\Randomizer;
 class Alliteration extends AbstractGenerator implements Generator
 {
     /** @type array The definition of the potential adjectives. */
-    protected $_adjectives;
+    protected array $_adjectives;
 
     /** @type array The definition of the potential nouns. */
-    protected $_nouns;
+    protected array $_nouns;
 
     /** @type Cinam\Randomizer\Randomizer The random number generator. */
-    protected $_randomizer;
+    protected ?Randomizer $_randomizer;
 
     /** @type string The language code of the word lists. */
-    protected $_language;
+    protected string $_language;
 
     /**
      * Initializes the Alliteration Generator with the default word lists.
@@ -28,7 +28,7 @@ class Alliteration extends AbstractGenerator implements Generator
      * @param string $language The language code of the word lists ('en' or 'es').
      * @throws \InvalidArgumentException If the language is not supported.
      */
-    public function __construct(Randomizer $randomizer = null, $language = 'en')
+    public function __construct(?Randomizer $randomizer = null, $language = 'en')
     {
         $directory = __DIR__ . "/{$language}";
         if (!preg_match('/^[a-z]{2}$/', $language) || !is_dir($directory)) {

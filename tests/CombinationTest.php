@@ -1,12 +1,12 @@
 <?php
-namespace Nubs\RandomNameGenerator;
+namespace Platoniq\RandomNameGenerator;
 
 use PHPUnit\Framework\TestCase;
 use Cinam\Randomizer\Randomizer;
 use Cinam\Randomizer\NumberGenerator;
 
 /**
- * @coversDefaultClass \Nubs\RandomNameGenerator\Combination
+ * @coversDefaultClass \Platoniq\RandomNameGenerator\Combination
  * @covers ::<protected>
  */
 class CombinationTest extends TestCase
@@ -19,7 +19,7 @@ class CombinationTest extends TestCase
      *
      * @return void
      */
-    public function getNameBasic()
+    public function testNameBasic()
     {
         $generator = new Combination();
         $this->assertCount(2, explode(' ', $generator->getName()));
@@ -33,10 +33,10 @@ class CombinationTest extends TestCase
      *
      * @return void
      */
-    public function getNameForced()
+    public function testNameForced()
     {
         $numberGenerator = $this->createMock(NumberGenerator::class);
-        $numberGenerator->expects($this->exactly(2))->method('getInt')->will($this->onConsecutiveCalls(0, 100));
+        $numberGenerator->expects($this->exactly(2))->method('getInt')->willReturn(0, 100);
         $randomizer = new Randomizer($numberGenerator);
 
         $generator = new Combination($randomizer);
@@ -51,10 +51,10 @@ class CombinationTest extends TestCase
      *
      * @return void
      */
-    public function getNameSpanishForced()
+    public function testNameSpanishForced()
     {
         $numberGenerator = $this->createMock(NumberGenerator::class);
-        $numberGenerator->expects($this->exactly(2))->method('getInt')->will($this->onConsecutiveCalls(0, 80));
+        $numberGenerator->expects($this->exactly(2))->method('getInt')->willReturn(0, 80);
         $randomizer = new Randomizer($numberGenerator);
 
         $generator = new Combination($randomizer, 'es');
@@ -69,7 +69,7 @@ class CombinationTest extends TestCase
      *
      * @return void
      */
-    public function getNameIsNotRestrictedToAlliteration()
+    public function testNameIsNotRestrictedToAlliteration()
     {
         foreach (['en', 'es'] as $language) {
             $generator = new Combination(null, $language);

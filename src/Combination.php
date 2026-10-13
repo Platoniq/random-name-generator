@@ -1,5 +1,5 @@
 <?php
-namespace Nubs\RandomNameGenerator;
+namespace Platoniq\RandomNameGenerator;
 
 /**
  * Defines a name generator that pairs any adjective with any noun, regardless

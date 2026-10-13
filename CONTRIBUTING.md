@@ -26,9 +26,9 @@ Pull requests will automatically have a build kicked off on [Travis
 CI][travis-ci] and [Scrutinizer CI][scrutinizer-ci].  The results of these
 builds are monitored closely for all pull requests.
 
-[issues]: https://github.com/nubs/random-name-generator/issues
-[pull-requests]: https://github.com/nubs/random-name-generator/pulls
-[build-script]: https://github.com/nubs/random-name-generator/blob/master/build.php
+[issues]: https://github.com/Platoniq/random-name-generator/issues
+[pull-requests]: https://github.com/Platoniq/random-name-generator/pulls
+[build-script]: https://github.com/Platoniq/random-name-generator/blob/master/build.php
 [psr-1]: http://www.php-fig.org/psr/psr-1/ "PSR-1 - Basic Coding Standard"
 [phpunit]: http://phpunit.de/ "PHPUnit - The PHP Testing Framework"
 [travis-ci]: https://travis-ci.org/nubs/random-name-generator
