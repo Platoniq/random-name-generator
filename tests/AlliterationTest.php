@@ -80,7 +80,7 @@ class AlliterationTest extends TestCase
         $randomizer = new Randomizer($numberGenerator);
 
         $generator = new Alliteration($randomizer, 'es');
-        $this->assertSame('León Leal', $generator->getName());
+        $this->assertSame('Iguana Imbatible', $generator->getName());
     }
 
     /**

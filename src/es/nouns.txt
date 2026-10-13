@@ -68,6 +68,7 @@ pelícano
 petirrojo
 pingüino
 puma
+quetzal
 rana
 reno
 rinoceronte
@@ -80,6 +81,8 @@ tejón
 tigre
 tortuga
 tucán
+urogallo
 venado
 vencejo
 vizcacha
+zorzal
