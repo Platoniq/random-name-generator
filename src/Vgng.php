@@ -11,10 +11,10 @@ use Cinam\Randomizer\Randomizer;
 class Vgng extends AbstractGenerator implements Generator
 {
     /** @type array The definition of the potential names. */
-    protected $_definitionSets;
+    protected array $_definitionSets;
 
     /** @type Cinam\Randomizer\Randomizer The random number generator. */
-    protected $_randomizer;
+    protected ?Randomizer $_randomizer;
 
     /**
      * Initializes the Video Game Name Generator from the default word list.
@@ -22,7 +22,7 @@ class Vgng extends AbstractGenerator implements Generator
      * @api
      * @param \Cinam\Randomizer\Randomizer $randomizer The random number generator.
      */
-    public function __construct(Randomizer $randomizer = null)
+    public function __construct(?Randomizer $randomizer = null)
     {
         $this->_randomizer = $randomizer;
         $this->_definitionSets = array_map(
