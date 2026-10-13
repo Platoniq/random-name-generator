@@ -50,9 +50,20 @@ class Alliteration extends AbstractGenerator implements Generator
     public function getName()
     {
         $adjective = $this->_getRandomWord($this->_adjectives);
-        $noun = $this->_getRandomWord($this->_nouns, $adjective[0]);
+        $noun = $this->_getNoun($adjective);
 
         return ucwords($this->_language === 'es' ? "{$noun} {$adjective}" : "{$adjective} {$noun}");
+    }
+
+    /**
+     * Get a random noun that starts with the same letter as the adjective.
+     *
+     * @param string $adjective The adjective the noun will be paired with.
+     * @return string The random noun.
+     */
+    protected function _getNoun($adjective)
+    {
+        return $this->_getRandomWord($this->_nouns, $adjective[0]);
     }
 
     /**
